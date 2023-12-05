@@ -60,7 +60,6 @@ public class Liikkuminen : MonoBehaviour
             //Jos ollaan oltu maassa hetki sitten (Jos hyppyviiveell‰ on arvo)
             if (hyppyViive > 0)
             {
-                print("hyp‰tty");
                 hyppyViive = 0;
                 //Hypp‰‰
                 yNopeus += Mathf.Sqrt(hypynKorkeus * 2 * painovoima);

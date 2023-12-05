@@ -837,9 +837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ctrl: {fileID: 1109448099}
   nopeus: 4
-  kaantymisAika: 0.1
-  painovoima: -9.81
-  hypynKorkeus: 50
+  kaantymisAika: 0.07
+  hypynKorkeus: 1
 --- !u!143 &1109448099
 CharacterController:
   m_ObjectHideFlags: 0

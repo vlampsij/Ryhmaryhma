@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Aloitus.unity
+    guid: 2eb8c0e0dad69f24d8e4f50cdad9cc9b
   m_configObjects: {}

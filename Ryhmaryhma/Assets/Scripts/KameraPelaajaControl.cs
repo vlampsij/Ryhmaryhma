@@ -47,7 +47,7 @@ public class KameraPelaajaControl : MonoBehaviour
         if (maassa)
         {
             //viive, jotta pelaaja voi hyp‰t‰ rampeilla alas tultaessa
-            hyppyViive = 0.2f;
+            hyppyViive = 0.1f;
         }
 
         if (hyppyViive > 0)
@@ -101,11 +101,11 @@ public class KameraPelaajaControl : MonoBehaviour
         rotaatio.y += Input.GetAxis("Mouse X") * kameranHerkkyys;
         rotaatio.x += -Input.GetAxis("Mouse Y") * kameranHerkkyys;
         rotaatio.x = Mathf.Clamp(rotaatio.x, -lookXLimit, lookXLimit);
-        kameraParent.localRotation = Quaternion.Euler(rotaatio.x, 0, 0);
+        kameraParent.localRotation = Quaternion.Euler(rotaatio.x, rotaatio.y, 0);
 
         // p‰ivitt‰‰ kameran parentin sijainnin pelaajan sijainnin perusteella
         kameraParent.position = transform.position;
 
-        kameraParent.parent.eulerAngles = new Vector3(0, rotaatio.y, 0);
+        //kameraParent.parent.eulerAngles = new Vector3(0, rotaatio.y, 0);
     }
 }

@@ -25,8 +25,8 @@ public class KameraPelaajaControl : MonoBehaviour
     private float yNopeus;
     private float painovoima = 9.81f;
     public float hypynKorkeus = 1f;
+    private float ilmanvastuksenKerroin = 0.3f;
 
-    
 
     private void Start()
     {
@@ -38,6 +38,8 @@ public class KameraPelaajaControl : MonoBehaviour
     {
         Liikunta();
         KameraRotaatio();
+
+
     }
 
     private void Liikunta()
@@ -63,8 +65,8 @@ public class KameraPelaajaControl : MonoBehaviour
         yNopeus -= painovoima * Time.deltaTime * 2;
 
         //x-ja y-akselin input
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         // M‰‰ritt‰‰ liikkumissuunnan kameran eteenp‰in suuntautuvan akselin perusteella
         Vector3 kameraEteenpain = kameraParent.forward;
@@ -85,8 +87,13 @@ public class KameraPelaajaControl : MonoBehaviour
             if (hyppyViive > 0)
             {
                 hyppyViive = 0;
+
                 //Hypp‰‰
                 yNopeus += Mathf.Sqrt(hypynKorkeus * 2 * painovoima);
+
+                //lis‰‰ realistisuutta hyppyyn eli v‰hent‰‰ ilmanvastuksen vaikutusta y-nopeuteen, ilmanvastuksen kerroin m‰‰r‰‰, kuinka voimakkaasti ilmanvastus vaikuttaa liikkeen hidastumiseen.
+                yNopeus -= ilmanvastuksenKerroin* yNopeus * Time.deltaTime;
+
             }
         }
         //Antaa suunnalle asianmukaisen y-akselin nopeuden, sitten tehd‰‰n Move call

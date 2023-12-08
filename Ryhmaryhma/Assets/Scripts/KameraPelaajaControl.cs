@@ -60,7 +60,7 @@ public class KameraPelaajaControl : MonoBehaviour
             yNopeus = 0f;
         }
         //painovoima
-        yNopeus -= painovoima * Time.deltaTime;
+        yNopeus -= painovoima * Time.deltaTime * 2;
 
         //x-ja y-akselin input
         float horizontal = Input.GetAxis("Horizontal");

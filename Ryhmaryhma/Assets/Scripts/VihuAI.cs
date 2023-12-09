@@ -12,36 +12,41 @@ public class VihuAI : MonoBehaviour
 
     public LayerMask tamaOnMaata, tamaOnPelaaja;
 
-    //Patrol
+    //Partioinnin muuttujat
     public Vector3 kohde;
     bool onKohde;
     public float kohdeEtaisyys;
 
-    //Hyökkäys
+    //Hyökkäyksen muuttujat
     public float attackRate;
     bool hyokatty;
-
+    //Aggro range
     public float nakoEtaisyys, hyokkaysEtaisyys;
     public bool pelaajaNakopiirissa, pelaajaKantamalla, aggro;
 
     private void Awake()
     {
+        //Ottaa pelaajan muuttujaan
         pelaaja = GameObject.Find("PlayerPlacehold").transform;
         agent = GetComponent<NavMeshAgent>();
     }
     private void Update()
     {
+        //Aggro range ja attack range
         pelaajaNakopiirissa = Physics.CheckSphere(transform.position, nakoEtaisyys, tamaOnPelaaja);
         pelaajaKantamalla = Physics.CheckSphere(transform.position, hyokkaysEtaisyys, tamaOnPelaaja);
 
         if (!pelaajaNakopiirissa && !pelaajaKantamalla && !aggro)
         {
+            //Partioi jos pelaaja ei rangella
             Patrol();
         }
         else if (pelaajaNakopiirissa && !pelaajaKantamalla || aggro)
         {
+            //Aggroo ja ajaa pelaajaa takaa kun osuu kantamalle
             AjaPelaajaa();
             aggro = true;
+            //Hyökkää jos on pelaajan vieressä
             if (pelaajaNakopiirissa && pelaajaKantamalla)
             {
                 Hyokkaa();
@@ -52,6 +57,7 @@ public class VihuAI : MonoBehaviour
 
     private void Patrol()
     {
+        //Hakee kohdepisteen, jota kohti kulkee
         if (!onKohde)
         {
             HaeKohde();
@@ -60,8 +66,9 @@ public class VihuAI : MonoBehaviour
         {
             agent.SetDestination(kohde);
         }
+        
         Vector3 etaisyysKohteeseen = transform.position - kohde;
-
+        //jos etäisyys on minimaalinen, nollaa muuttujan, jotta koodi hakee uuden kohteen
         if (etaisyysKohteeseen.magnitude < 1f)
         {
             onKohde = false;
@@ -71,9 +78,10 @@ public class VihuAI : MonoBehaviour
     {
         float randomZ = Random.Range(-kohdeEtaisyys, kohdeEtaisyys);
         float randomX = Random.Range(-kohdeEtaisyys, kohdeEtaisyys);
-
+        //Kohde on random X ja Z pisteen tulos
         kohde = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
+        //Tarkistaa, että pisteelle voi kävellä
         if (Physics.Raycast(kohde, -transform.up, 2f, tamaOnMaata))
         {
             onKohde = true;
@@ -86,15 +94,16 @@ public class VihuAI : MonoBehaviour
     private void Hyokkaa()
     {
         agent.SetDestination(transform.position);
-
         transform.LookAt(pelaaja);
+        //Hyökkää pelaajan suuntaan, jos muuttuja sallii
         if (!hyokatty)
         {
+            //Hyökkää eteenpäin. Periaatteessa projektiili voisi olla helpompi mut menin tällä
             rb.AddForce(transform.forward, ForceMode.Impulse);
             
 
             hyokatty = true;
-            
+            //Resettaa muuttujan attackRaten kuluttua loppuun
             Invoke("HyokkaysReset", attackRate);
         }
     }
@@ -108,6 +117,7 @@ public class VihuAI : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
+        //Näillä voi visualisoida vihollisen aggro rangen ja kantaman editorissa
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, nakoEtaisyys);
         Gizmos.color = Color.red;

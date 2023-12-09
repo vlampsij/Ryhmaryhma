@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KameraPelaajaControl : MonoBehaviour
 {
@@ -31,7 +33,6 @@ public class KameraPelaajaControl : MonoBehaviour
     private void Start()
     {
         ctrl = GetComponent<CharacterController>(); // hakee CharacterController-komponentin pelaajasta johon koodi liitetty
-        
     }
 
     private void Update()
@@ -100,6 +101,11 @@ public class KameraPelaajaControl : MonoBehaviour
         //Vain yksi Move call voidaan tehdä per frame
         suunta.y = yNopeus;
         ctrl.Move(suunta * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Menuun();
+        }
     }
 
     private void KameraRotaatio()
@@ -114,5 +120,10 @@ public class KameraPelaajaControl : MonoBehaviour
         kameraParent.position = transform.position;
 
         //kameraParent.parent.eulerAngles = new Vector3(0, rotaatio.y, 0);
+    }
+    private void Menuun()
+    {
+        //Taso1 = 3, aloitusmenu = 0
+        SceneManager.LoadScene(0);
     }
 }

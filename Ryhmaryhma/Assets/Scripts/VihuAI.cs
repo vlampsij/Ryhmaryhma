@@ -9,6 +9,7 @@ public class VihuAI : MonoBehaviour
 
     public Transform pelaaja;
     public Rigidbody rb;
+    private Animator animaatio;
 
     public LayerMask tamaOnMaata, tamaOnPelaaja;
 
@@ -29,6 +30,7 @@ public class VihuAI : MonoBehaviour
         //Ottaa pelaajan muuttujaan
         pelaaja = GameObject.Find("PlayerPlacehold").transform;
         agent = GetComponent<NavMeshAgent>();
+        animaatio = GetComponentInChildren<Animator>();
     }
     private void Update()
     {
@@ -100,6 +102,7 @@ public class VihuAI : MonoBehaviour
         {
             //Hyökkää eteenpäin. Periaatteessa projektiili voisi olla helpompi mut menin tällä
             rb.AddForce(transform.forward, ForceMode.Impulse);
+            animaatio.SetTrigger("Hyokkays");
             
 
             hyokatty = true;
@@ -113,7 +116,8 @@ public class VihuAI : MonoBehaviour
     }
     private void TuhoaVihu()
     {
-        Destroy(gameObject);
+        animaatio.SetBool("Kuolema", true);
+        Destroy(gameObject, 1f);
     }
     private void OnDrawGizmosSelected()
     {

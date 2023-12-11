@@ -11796,7 +11796,7 @@ MonoBehaviour:
     m_Bits: 64
   kohde: {x: 0, y: 0, z: 0}
   kohdeEtaisyys: 5
-  attackRate: 2
+  attackRate: 3
   nakoEtaisyys: 7
   hyokkaysEtaisyys: 2
   pelaajaNakopiirissa: 0

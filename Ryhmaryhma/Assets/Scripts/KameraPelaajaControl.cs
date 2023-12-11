@@ -8,6 +8,7 @@ public class KameraPelaajaControl : MonoBehaviour
 {
     public Transform kameraParent;
     private CharacterController ctrl; //voi olla private koska koodi on pelaajassa komponenttin‰
+    private Animator anim;
 
     public float kameranHerkkyys = 2.0f; // voi olla ett‰ lis‰t‰‰n peliin kohta jossa t‰t‰ muuttaa?
 
@@ -33,6 +34,7 @@ public class KameraPelaajaControl : MonoBehaviour
     private void Start()
     {
         ctrl = GetComponent<CharacterController>(); // hakee CharacterController-komponentin pelaajasta johon koodi liitetty
+        anim = gameObject.GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -81,6 +83,16 @@ public class KameraPelaajaControl : MonoBehaviour
             float kulma = Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref kaantymisNopeus, kaantymisAika);
             transform.rotation = Quaternion.Euler(0f, kulma, 0f);
         }
+
+        //if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        //{
+        //    anim.SetInteger("AnimationPar", 1);
+        //}
+        //else
+        //{
+        //    anim.SetInteger("AnimationPar", 0);
+        //}
+
         //Hyppy
         if (Input.GetButtonDown("Jump"))
         {

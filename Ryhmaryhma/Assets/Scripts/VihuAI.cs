@@ -27,7 +27,7 @@ public class VihuAI : MonoBehaviour
     private void Awake()
     {
         //Ottaa pelaajan muuttujaan
-        pelaaja = GameObject.Find("PlayerPlacehold").transform;
+        pelaaja = GameObject.Find("Astronaut").transform;
         agent = GetComponent<NavMeshAgent>();
     }
     private void Update()

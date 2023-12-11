@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,7 +9,7 @@ public class VihuAI : MonoBehaviour
     public NavMeshAgent agent;
 
     public Transform pelaaja;
-    public Rigidbody rb;
+    //public Rigidbody rb;
     private Animator animaatio;
 
     public LayerMask tamaOnMaata, tamaOnPelaaja;
@@ -101,15 +102,17 @@ public class VihuAI : MonoBehaviour
         if (!hyokatty)
         {
             //Hyökkää eteenpäin. Periaatteessa projektiili voisi olla helpompi mut menin tällä
-            rb.AddForce(transform.forward, ForceMode.Impulse);
+            //rb.AddForce(transform.forward, ForceMode.Impulse);
             animaatio.SetTrigger("Hyokkays");
             
+
 
             hyokatty = true;
             //Resettaa muuttujan attackRaten kuluttua loppuun
             Invoke("HyokkaysReset", attackRate);
         }
     }
+
     private void HyokkaysReset()
     {
         hyokatty = false;

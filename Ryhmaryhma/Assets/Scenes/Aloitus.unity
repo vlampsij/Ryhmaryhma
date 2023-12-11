@@ -967,7 +967,7 @@ RectTransform:
   m_GameObject: {fileID: 986927652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.964876, y: 5.883513, z: 5.883513}
+  m_LocalScale: {x: 12.7055025, y: 6.2477026, z: 6.2477026}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 887139605}
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0fe3a058da4be9246b81dde125038ab0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbdb4980b2bea6a48a2933aa6b6a7fb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1383,7 +1383,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1954,15 +1954,15 @@ RectTransform:
   m_GameObject: {fileID: 2122387125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0653616, y: 1.2351874, z: 1.2351874}
+  m_LocalScale: {x: 1.1501644, y: 1.3335083, z: 1.3335083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 887139605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 210}
-  m_SizeDelta: {x: 368.3915, y: 50}
+  m_AnchoredPosition: {x: 34.630104, y: 211.03}
+  m_SizeDelta: {x: 406.7166, y: 48.3322}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2122387127
 MonoBehaviour:
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HUIPPUSEIKKAILU
+  m_text: AVARUUSSEIKKAILU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1993,8 +1993,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293667071
-  m_fontColor: {r: 1, g: 0.15686274, b: 0.92379427, a: 1}
+    rgba: 4293388263
+  m_fontColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2068,5 +2068,5 @@ SceneRoots:
   - {fileID: 150761198}
   - {fileID: 221810067}
   - {fileID: 887139605}
-  - {fileID: 1536650545}
   - {fileID: 1428113985}
+  - {fileID: 1536650545}

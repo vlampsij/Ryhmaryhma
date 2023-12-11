@@ -25,6 +25,11 @@ public class MenuScripti : MonoBehaviour
         SceneManager.LoadScene("Huippuajat");
     }
 
+    public void Taso1BtnClicked()
+    {
+        SceneManager.LoadScene("Taso1");
+    }
+
     public void EndBtnClicked()
     {
         Application.Quit();

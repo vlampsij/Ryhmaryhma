@@ -5,17 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        pauseMenu.SetActive(false);
-    }
-
-    // Update is called once per frame
+    [SerializeField] GameObject pauseMenu;
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Escape key pressed");
             TogglePauseMenu();
         }
     }
@@ -28,20 +23,23 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = isPaused ? 0f : 1f;
     }
-    [SerializeField] GameObject pauseMenu;
 
     public void Home()
     {
         SceneManager.LoadScene("Aloitus");
+        Time.timeScale = 1;
     }
 
     public void Resume()
     {
-        TogglePauseMenu();
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 }
+

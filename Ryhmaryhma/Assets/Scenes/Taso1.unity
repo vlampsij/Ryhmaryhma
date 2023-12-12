@@ -8580,6 +8580,7 @@ MonoBehaviour:
   nopeus: 8
   kaantymisAika: 0.07
   hypynKorkeus: 4
+  hyppyAani: {fileID: 8300000, guid: 28d46ae7e575f4ea99c3f03635b56da6, type: 3}
 --- !u!82 &440610588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14878,7 +14879,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 28d46ae7e575f4ea99c3f03635b56da6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: -0.16
   Loop: 0
   Mute: 0
@@ -18512,6 +18513,7 @@ MonoBehaviour:
   nopeus: 8
   kaantymisAika: 0.07
   hypynKorkeus: 5
+  hyppyAani: {fileID: 0}
 --- !u!1 &1114138918
 GameObject:
   m_ObjectHideFlags: 0

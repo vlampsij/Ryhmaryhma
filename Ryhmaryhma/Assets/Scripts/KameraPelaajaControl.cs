@@ -31,6 +31,8 @@ public class KameraPelaajaControl : MonoBehaviour
     private float ilmanvastuksenKerroin = 0.3f;
 
     private AudioSource aani;
+    //public AudioSource hyppy;
+    public AudioClip hyppyAani;
 
     //Damagemuuttujat
     private float hidastus = 1;
@@ -69,6 +71,7 @@ public class KameraPelaajaControl : MonoBehaviour
         //Maahan osuessa tappaa y-akselin liikkeen
         if (maassa && yNopeus < 0)
         {
+
             yNopeus = 0f;
         }
         //painovoima
@@ -122,6 +125,8 @@ public class KameraPelaajaControl : MonoBehaviour
             if (hyppyViive > 0)
             {
                 hyppyViive = 0;
+
+                aani.PlayOneShot(hyppyAani);
 
                 //Hypp‰‰
                 yNopeus += Mathf.Sqrt(hypynKorkeus * 2 * painovoima);

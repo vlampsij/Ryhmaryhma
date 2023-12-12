@@ -5,6 +5,8 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     public GameObject hitbox;
+    public AudioSource hamis;
+    //public AudioClip hooki;
 
     private void Awake()
     {
@@ -12,6 +14,7 @@ public class Hitbox : MonoBehaviour
     }
     public void AktivoiHitbox()
     {
+        hamis.PlayOneShot(hamis.clip, 0.2f);
         hitbox.GetComponent<Collider>().enabled = true;
     }
     public void DeaktivoiHitbox()

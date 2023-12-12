@@ -20,7 +20,7 @@ public class KameraPelaajaControl : MonoBehaviour
     public float nopeus = 4f;
     public float kaantymisAika = 0.07f;
     float kaantymisNopeus;
-    
+
     private Vector3 rotaatio = Vector3.zero; //liikkumissuunta
 
     //hypyn muuttuujat
@@ -30,6 +30,8 @@ public class KameraPelaajaControl : MonoBehaviour
     public float hypynKorkeus = 1f;
     private float ilmanvastuksenKerroin = 0.3f;
 
+    private AudioSource aani;
+
     //Damagemuuttujat
     private float hidastus = 1;
 
@@ -38,6 +40,8 @@ public class KameraPelaajaControl : MonoBehaviour
     {
         ctrl = GetComponent<CharacterController>(); // hakee CharacterController-komponentin pelaajasta johon koodi liitetty
         anim = gameObject.GetComponentInChildren<Animator>();
+
+        aani = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -86,19 +90,34 @@ public class KameraPelaajaControl : MonoBehaviour
             float kulma = Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref kaantymisNopeus, kaantymisAika);
             transform.rotation = Quaternion.Euler(0f, kulma, 0f);
         }
+        bool liikkuu;
 
         if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
             anim.SetInteger("AnimationPar", 1);
+            liikkuu = true;
         }
         else
         {
             anim.SetInteger("AnimationPar", 0);
+            liikkuu = false;
         }
+
+        if (liikkuu && !aani.isPlaying && !Input.GetButtonDown("Jump") && maassa)
+        {
+            
+            aani.Play();
+        }
+        else if (!liikkuu)
+        {
+            aani.Stop();
+        }
+        
+
 
         //Hyppy
         if (Input.GetButtonDown("Jump"))
-        {
+        { 
             //Jos ollaan oltu maassa hetki sitten (Jos hyppyviiveell‰ on arvo)
             if (hyppyViive > 0)
             {
@@ -110,6 +129,7 @@ public class KameraPelaajaControl : MonoBehaviour
                 //lis‰‰ realistisuutta hyppyyn eli v‰hent‰‰ ilmanvastuksen vaikutusta y-nopeuteen, ilmanvastuksen kerroin m‰‰r‰‰, kuinka voimakkaasti ilmanvastus vaikuttaa liikkeen hidastumiseen.
                 yNopeus -= ilmanvastuksenKerroin* yNopeus * Time.deltaTime;
 
+                
             }
         }
         //Antaa suunnalle asianmukaisen y-akselin nopeuden, sitten tehd‰‰n Move call

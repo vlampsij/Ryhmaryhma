@@ -117,10 +117,10 @@ public class KameraPelaajaControl : MonoBehaviour
         suunta.y = yNopeus;
         ctrl.Move(suunta * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Menuun();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    Pause();
+        //}
     }
 
     private void KameraRotaatio()

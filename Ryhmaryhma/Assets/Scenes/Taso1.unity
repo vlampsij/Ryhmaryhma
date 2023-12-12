@@ -2851,7 +2851,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 164591198}
   pelaaja: {fileID: 1109448097}
-  rb: {fileID: 164591200}
   tamaOnMaata:
     serializedVersion: 2
     m_Bits: 8
@@ -3327,7 +3326,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.07666667
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: b409a0897dd5b29449dc2ad330a847e3, type: 2}
   m_BuildHeightMesh: 0
@@ -11792,7 +11791,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 591823459}
   pelaaja: {fileID: 1109448097}
-  rb: {fileID: 331144696}
   tamaOnMaata:
     serializedVersion: 2
     m_Bits: 8

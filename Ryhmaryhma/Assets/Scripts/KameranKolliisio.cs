@@ -53,7 +53,7 @@ public class KameranKolliisio : MonoBehaviour
         else
         {
             // Use Vector3.Lerp to smoothly interpolate between current and target position
-            nykyinenSijainti = Vector3.Lerp(transform.localPosition, nykyinenSijainti, Time.deltaTime * kameraNopeus);
+            nykyinenSijainti = Vector3.Lerp(transform.localPosition, oletusSijainti, Time.deltaTime * kameraNopeus);
         }
 
         // Set the camera's position

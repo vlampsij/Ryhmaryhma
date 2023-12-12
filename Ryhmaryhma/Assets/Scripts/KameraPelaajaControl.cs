@@ -87,14 +87,14 @@ public class KameraPelaajaControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, kulma, 0f);
         }
 
-        //if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
-        //{
-        //    anim.SetInteger("AnimationPar", 1);
-        //}
-        //else
-        //{
-        //    anim.SetInteger("AnimationPar", 0);
-        //}
+        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        {
+            anim.SetInteger("AnimationPar", 1);
+        }
+        else
+        {
+            anim.SetInteger("AnimationPar", 0);
+        }
 
         //Hyppy
         if (Input.GetButtonDown("Jump"))

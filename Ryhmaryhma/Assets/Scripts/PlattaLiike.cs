@@ -52,12 +52,16 @@ public class PlattaLiike : MonoBehaviour
         float aikaKohteeseen = Vector3.Distance(_edellinen.position, _kohde.position);
         _aikaPisteeseen = aikaKohteeseen / _nopeus;
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         //Ottaa pelaajan platformin lapsiobjektiksi kun osuu triggeriin
         //Näin pelaaja liikkuu platan mukana
-        other.transform.SetParent(transform);
+        if (other.gameObject.tag == "Astronautti")
+        {
+            other.transform.SetParent(transform);
+            
+        }
     }
 
     private void OnTriggerExit(Collider other)

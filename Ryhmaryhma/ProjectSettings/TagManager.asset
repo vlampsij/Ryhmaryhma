@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lattia
   - Hitbox
+  - Astronautti
   layers:
   - Default
   - TransparentFX

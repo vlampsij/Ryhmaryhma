@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14512306, g: 0.1779564, b: 0.34055027, a: 1}
+  m_IndirectSpecularColor: {r: 0.14512318, g: 0.17795649, b: 0.340551, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8558,6 +8558,28 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &440610580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5593195909017292627, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+  m_PrefabInstance: {fileID: 1795253488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &440610585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440610580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9f885d3272d8f4b9a83cf1e716d448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kameraParent: {fileID: 918385878}
+  kameranHerkkyys: 2
+  nopeus: 8
+  kaantymisAika: 0.07
+  hypynKorkeus: 4
 --- !u!1 &444919374
 GameObject:
   m_ObjectHideFlags: 0
@@ -8707,8 +8729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenssiPaikka: {fileID: 918385878}
-  kolliisioEtaisyys: 0.3
-  kameraNopeus: 15
+  kolliisioEtaisyys: 0.5
+  kameraNopeus: 10
 --- !u!1 &473471764
 GameObject:
   m_ObjectHideFlags: 0
@@ -18046,7 +18068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1109448094
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18185,7 +18207,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109448093}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d9f885d3272d8f4b9a83cf1e716d448, type: 3}
   m_Name: 
@@ -31496,6 +31518,22 @@ PrefabInstance:
       propertyPath: kameraParent
       value: 
       objectReference: {fileID: 918385878}
+    - target: {fileID: 728931873124821523, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: m_Size.z
+      value: 0.00241307
+      objectReference: {fileID: 0}
+    - target: {fileID: 728931873124821523, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 728931873124821523, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593195909017195379, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.04
+      objectReference: {fileID: 0}
     - target: {fileID: 5593195909017195379, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -31547,6 +31585,10 @@ PrefabInstance:
     - target: {fileID: 5593195909017292591, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593195909017292591, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: m_TagString
+      value: Astronautti
       objectReference: {fileID: 0}
     - target: {fileID: 5593195909017292593, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
       propertyPath: m_Layer
@@ -31626,7 +31668,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5593195909017292627, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593195909017292627, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: m_TagString
+      value: Astronautti
       objectReference: {fileID: 0}
     - target: {fileID: 5593195909017292629, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
       propertyPath: m_Layer
@@ -31652,10 +31698,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 728931873124821523, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+    - {fileID: 5593195910366287650, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 5592274848502135240, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5593195909017292627, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 440610585}
   m_SourcePrefab: {fileID: 100100000, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
 --- !u!1 &1797744939
 GameObject:

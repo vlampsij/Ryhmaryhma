@@ -49,14 +49,14 @@ public class KameranKolliisio : MonoBehaviour
         if (Physics.SphereCast(referenssiPaikka.position, kolliisioEtaisyys, kohdeSuunta, out osuma, oletusEtaisyys))
         {
             nykyinenSijainti = (normaaliSuunta * (osuma.distance - kolliisioEtaisyys));
-
-            // asettaa kameran paikan törmäyksen/seinän kohdalle
-            transform.localPosition = nykyinenSijainti;
         }
         else
         {
-            // siirtää kameran takaisin oletuspaikkaan smoothisti, jos ei ole osumaa mihinkään
-            transform.localPosition = Vector3.Lerp(transform.localPosition, nykyinenSijainti, Time.deltaTime * kameraNopeus);
+            // Use Vector3.Lerp to smoothly interpolate between current and target position
+            nykyinenSijainti = Vector3.Lerp(transform.localPosition, nykyinenSijainti, Time.deltaTime * kameraNopeus);
         }
+
+        // Set the camera's position
+        transform.localPosition = nykyinenSijainti;
     }
 }

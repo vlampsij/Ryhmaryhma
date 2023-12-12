@@ -30,9 +30,6 @@ public class KameraPelaajaControl : MonoBehaviour
     public float hypynKorkeus = 1f;
     private float ilmanvastuksenKerroin = 0.3f;
 
-    //Damagemuuttujat
-    private float hidastus = 1;
-
 
     private void Start()
     {
@@ -77,11 +74,11 @@ public class KameraPelaajaControl : MonoBehaviour
         // M‰‰ritt‰‰ liikkumissuunnan kameran eteenp‰in suuntautuvan akselin perusteella
         Vector3 kameraEteenpain = kameraParent.forward;
         kameraEteenpain.y = 0; // J‰tt‰‰ y-komponentin huomiotta kallistuksen v‰ltt‰miseksi
-        Vector3 suunta = (kameraEteenpain * vertical + kameraParent.right * horizontal).normalized * nopeus * hidastus;
+        Vector3 suunta = (kameraEteenpain * vertical + kameraParent.right * horizontal).normalized * nopeus;
 
         if (suunta.magnitude >= 0.1f)
         {
-            //K‰‰nt‰‰ hahmomallin inputin suuntaan
+            //K‰‰nt‰‰ hahmomallin inputin suuntaan (smoothing ei toimi atm)
             float target = Mathf.Atan2(suunta.x, suunta.z) * Mathf.Rad2Deg;
             float kulma = Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref kaantymisNopeus, kaantymisAika);
             transform.rotation = Quaternion.Euler(0f, kulma, 0f);
@@ -140,25 +137,5 @@ public class KameraPelaajaControl : MonoBehaviour
     {
         //Taso1 = 3, aloitusmenu = 0
         SceneManager.LoadScene(0);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Hitbox")
-        {
-            OtaDamagee();
-        }
-    }
-    public void OtaDamagee()
-    {
-        //Osuman ottaminen hidastaa pelaajaa
-        StartCoroutine(Hidastus());
-        print("Damage");
-    }
-    IEnumerator Hidastus()
-    {
-        for (hidastus = 0.1f; hidastus < 1; hidastus += 0.003f)
-        {
-            yield return null;
-        }
     }
 }

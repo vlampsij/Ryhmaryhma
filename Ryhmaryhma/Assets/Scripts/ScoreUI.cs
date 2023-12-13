@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ScoreUI : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class ScoreUI : MonoBehaviour
             var row = Instantiate(rowUI, transform).GetComponent<RowUI>();
             row.playerScore.text = scores[i].score.ToString();
         }
+    }
+
+    public void Poistu()
+    {
+        SceneManager.LoadScene("Aloitus");
     }
 
 

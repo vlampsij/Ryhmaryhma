@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuScripti : MonoBehaviour
 {
+    public AudioSource aanet;
+    public AudioClip paallaAani;
+    public AudioClip klikkausAani;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +37,14 @@ public class MenuScripti : MonoBehaviour
     public void EndBtnClicked()
     {
         Application.Quit();
+    }
+
+    public void PaallaNapin()
+    {
+        aanet.PlayOneShot(paallaAani);
+    }
+    public void KlikkaaNapin()
+    {
+        aanet.PlayOneShot(klikkausAani);
     }
 }

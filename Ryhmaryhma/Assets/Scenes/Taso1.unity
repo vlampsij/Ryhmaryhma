@@ -14908,7 +14908,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 28d46ae7e575f4ea99c3f03635b56da6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.8
-  m_Pitch: -0.16
+  m_Pitch: -1.04
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -34760,6 +34760,8 @@ GameObject:
   - component: {fileID: 1885284156}
   - component: {fileID: 1885284155}
   - component: {fileID: 1885284154}
+  - component: {fileID: 1885284158}
+  - component: {fileID: 1885284157}
   m_Layer: 5
   m_Name: ResumeBtn
   m_TagString: Untagged
@@ -34880,6 +34882,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885284152}
   m_CullTransparentMesh: 1
+--- !u!114 &1885284157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885284152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c1cc21af00383408238763b28824ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aanet: {fileID: 1911722287}
+  paallaAani: {fileID: 8300000, guid: 6c96f17621974ab469d71b6645c210ae, type: 3}
+  klikkausAani: {fileID: 8300000, guid: fcf77559b4c484b4bb499c9a95c32e21, type: 3}
+--- !u!114 &1885284158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885284152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1911722288}
+          m_TargetAssemblyTypeName: MenuScripti, Assembly-CSharp
+          m_MethodName: PaallaNapin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1911722288}
+          m_TargetAssemblyTypeName: MenuScripti, Assembly-CSharp
+          m_MethodName: KlikkaaNapin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1888719271
 GameObject:
   m_ObjectHideFlags: 0
@@ -35410,6 +35472,9 @@ GameObject:
   - component: {fileID: 1911722285}
   - component: {fileID: 1911722284}
   - component: {fileID: 1911722283}
+  - component: {fileID: 1911722288}
+  - component: {fileID: 1911722287}
+  - component: {fileID: 1911722286}
   m_Layer: 5
   m_Name: HomeBtn
   m_TagString: Untagged
@@ -35530,6 +35595,162 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911722281}
   m_CullTransparentMesh: 1
+--- !u!114 &1911722286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911722281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1911722288}
+          m_TargetAssemblyTypeName: MenuScripti, Assembly-CSharp
+          m_MethodName: PaallaNapin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1911722288}
+          m_TargetAssemblyTypeName: MenuScripti, Assembly-CSharp
+          m_MethodName: KlikkaaNapin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!82 &1911722287
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911722281}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1911722288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911722281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c1cc21af00383408238763b28824ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aanet: {fileID: 1911722287}
+  paallaAani: {fileID: 8300000, guid: 6c96f17621974ab469d71b6645c210ae, type: 3}
+  klikkausAani: {fileID: 8300000, guid: fcf77559b4c484b4bb499c9a95c32e21, type: 3}
 --- !u!1 &1934905382
 GameObject:
   m_ObjectHideFlags: 0
@@ -38718,6 +38939,8 @@ GameObject:
   - component: {fileID: 2089797117}
   - component: {fileID: 2089797116}
   - component: {fileID: 2089797115}
+  - component: {fileID: 2089797119}
+  - component: {fileID: 2089797118}
   m_Layer: 5
   m_Name: RestartBtn
   m_TagString: Untagged
@@ -38838,6 +39061,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089797113}
   m_CullTransparentMesh: 1
+--- !u!114 &2089797118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089797113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c1cc21af00383408238763b28824ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aanet: {fileID: 1911722287}
+  paallaAani: {fileID: 8300000, guid: 6c96f17621974ab469d71b6645c210ae, type: 3}
+  klikkausAani: {fileID: 8300000, guid: fcf77559b4c484b4bb499c9a95c32e21, type: 3}
+--- !u!114 &2089797119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089797113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1911722288}
+          m_TargetAssemblyTypeName: MenuScripti, Assembly-CSharp
+          m_MethodName: PaallaNapin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1911722288}
+          m_TargetAssemblyTypeName: MenuScripti, Assembly-CSharp
+          m_MethodName: KlikkaaNapin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &2099824847
 PrefabInstance:
   m_ObjectHideFlags: 0

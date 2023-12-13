@@ -210,12 +210,12 @@ public class KameraPelaajaControl : MonoBehaviour
     IEnumerator LoppuAjastin(int s)
     {
         yield return new WaitForSecondsRealtime(s);
+        SceneManager.LoadScene(2);
     }
     public void Voita()
     {
         nopeus = 0f;
         anim.SetTrigger("Voitto");
         StartCoroutine(LoppuAjastin(5));
-        SceneManager.LoadScene(2);
     }
 }

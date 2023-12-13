@@ -4,12 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class KameraPelaajaControl : MonoBehaviour
 {
     public Transform kameraParent;
     private CharacterController ctrl; //voi olla private koska koodi on pelaajassa komponenttinä
     private Animator anim;
-
+    Ajastin ajastinSkripti;
     public float kameranHerkkyys = 2.0f; // voi olla että lisätään peliin kohta jossa tätä muuttaa?
 
     // rajoittaa kameran pystysuuntaista kulmaa, estää liian suuren liikkeen ylös tai alas
@@ -46,6 +47,7 @@ public class KameraPelaajaControl : MonoBehaviour
         anim = gameObject.GetComponentInChildren<Animator>();
 
         aani = gameObject.GetComponent<AudioSource>();
+        ajastinSkripti = gameObject.GetComponent<Ajastin>();
     }
 
     private void Update()
@@ -178,6 +180,7 @@ public class KameraPelaajaControl : MonoBehaviour
         //Taso1 = 3, aloitusmenu = 0
         SceneManager.LoadScene(0);
     }
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Hitbox")
@@ -187,6 +190,8 @@ public class KameraPelaajaControl : MonoBehaviour
         if(other.gameObject.tag == "Finish")
         {
             Voita();
+
+            ajastinSkripti.PelinLoppu();
         }
     }
     public void OtaDamagee()

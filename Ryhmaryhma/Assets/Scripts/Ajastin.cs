@@ -126,10 +126,11 @@ public class Ajastin : MonoBehaviour {
     {
         if (other.CompareTag("Finish"))
         {
+            Debug.LogError("maaalii");
             PelinLoppu();
         }
     }
-    private void PelinLoppu()
+    public void PelinLoppu()
     {
         LisaaHuippuaika(ajastin);
     }

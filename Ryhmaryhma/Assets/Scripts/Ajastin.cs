@@ -27,6 +27,8 @@ public class Ajastin : MonoBehaviour {
     private float flashAjastin;
     private float flashKesto;
 
+    private ScoreManager scoreManager;
+
     void Start()
     {
         ResetTimer();
@@ -44,9 +46,28 @@ public class Ajastin : MonoBehaviour {
             ajastin += Time.deltaTime;
             UpdateTimerDisplay(ajastin);
         }
+        else if (ajanLasku && ajastin <= 0)
+        {
+            LisaaHuippuaika(ajastin);
+        } else if (!ajanLasku && ajastin >= ajanKesto)
+        {
+            LisaaHuippuaika(ajastin);
+        }
         else
         {
-            Flash();
+           Flash();
+        }
+    }
+
+    private void LisaaHuippuaika(float aika)
+    {
+        if (scoreManager != null)
+        {
+            scoreManager.AddScore((int)aika);
+        }
+        else 
+        {
+            Debug.LogError("Scoremanager referenssi kateissa ajastin scriptissä");
         }
     }
     private void ResetTimer()
@@ -100,5 +121,16 @@ public class Ajastin : MonoBehaviour {
         tokaSekunti.enabled = enabled;
         jakaja.enabled = enabled;
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            PelinLoppu();
+        }
+    }
+    private void PelinLoppu()
+    {
+        LisaaHuippuaika(ajastin);
     }
 }

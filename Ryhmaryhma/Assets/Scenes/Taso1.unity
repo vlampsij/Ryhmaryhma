@@ -8700,6 +8700,7 @@ MonoBehaviour:
   jakaja: {fileID: 960738504}
   ekaSekunti: {fileID: 1084908857}
   tokaSekunti: {fileID: 1438524297}
+  scoreManager: {fileID: 0}
 --- !u!1 &444919374
 GameObject:
   m_ObjectHideFlags: 0
@@ -12249,6 +12250,7 @@ MonoBehaviour:
   jakaja: {fileID: 960738504}
   ekaSekunti: {fileID: 1084908857}
   tokaSekunti: {fileID: 1438524297}
+  scoreManager: {fileID: 0}
 --- !u!43 &619203603
 Mesh:
   m_ObjectHideFlags: 0

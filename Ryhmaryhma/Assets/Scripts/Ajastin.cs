@@ -27,11 +27,22 @@ public class Ajastin : MonoBehaviour {
     private float flashAjastin;
     private float flashKesto;
 
-    private ScoreManager scoreManager;
+    public ScoreManager scoreManager;
 
     void Start()
     {
         ResetTimer();
+        scoreManager = gameObject.GetComponentInParent<ScoreManager>(); 
+        Debug.Log("GameObject name: " + gameObject.name);
+        Debug.Log("ScoreManager assigned: " + (scoreManager != null));
+        if (scoreManager != null)
+        {
+            Debug.Log("ScoreManager component found.");
+        }
+        else
+        {
+            Debug.LogError("ScoreManager component not found.");
+        }
     }
 
     // Update is called once per frame

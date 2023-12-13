@@ -128,7 +128,6 @@ public class Ajastin : MonoBehaviour {
     {
         if (other.CompareTag("Finish"))
         {
-            Debug.Log("maaalii");
             PelinLoppu();
         }
     }

@@ -198,7 +198,6 @@ public class KameraPelaajaControl : MonoBehaviour
     {
         //Osuman ottaminen hidastaa pelaajaa
         StartCoroutine(Hidastus());
-        print("Damage");
     }
     IEnumerator Hidastus()
     {

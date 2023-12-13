@@ -32,7 +32,7 @@ public class Ajastin : MonoBehaviour {
     void Start()
     {
         ResetTimer();
-        scoreManager = gameObject.GetComponentInParent<ScoreManager>(); 
+        scoreManager = gameObject.GetComponent<ScoreManager>(); 
         Debug.Log("GameObject name: " + gameObject.name);
         Debug.Log("ScoreManager assigned: " + (scoreManager != null));
         if (scoreManager != null)

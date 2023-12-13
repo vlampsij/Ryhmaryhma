@@ -8705,7 +8705,7 @@ MonoBehaviour:
   jakaja: {fileID: 960738504}
   ekaSekunti: {fileID: 1084908857}
   tokaSekunti: {fileID: 1438524297}
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 820228012}
 --- !u!1 &444919374
 GameObject:
   m_ObjectHideFlags: 0
@@ -19866,6 +19866,50 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -433.7341, y: 117.66759, z: 5.5713825}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &820228011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 820228013}
+  - component: {fileID: 820228012}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &820228012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820228011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7d4a2caa7be534bb742e905fdbd149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &820228013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820228011}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.135593, y: 4.630473, z: 4.576865}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33050,6 +33094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ajastin
       objectReference: {fileID: 0}
+    - target: {fileID: 8934236235357064689, guid: 02a6e65061e34ad449e93d372f1b172c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -44780,3 +44828,4 @@ SceneRoots:
   - {fileID: 1568207621}
   - {fileID: 782417596}
   - {fileID: 1387674201}
+  - {fileID: 820228013}

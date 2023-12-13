@@ -38,6 +38,8 @@ public class KameraPelaajaControl : MonoBehaviour
     private float hidastus = 1;
 
 
+
+
     private void Start()
     {
         ctrl = GetComponent<CharacterController>(); // hakee CharacterController-komponentin pelaajasta johon koodi liitetty
@@ -62,6 +64,15 @@ public class KameraPelaajaControl : MonoBehaviour
         {
             //viive, jotta pelaaja voi hyp‰t‰ rampeilla alas tultaessa
             hyppyViive = 0.1f;
+            
+            anim.SetBool("Laskeutuminen", true);
+            anim.SetBool("Hyppy", false);
+            anim.SetBool("Tippuminen", false);
+        }
+        else
+        {
+            anim.SetBool("Tippuminen", true);
+            anim.SetBool("Laskeutuminen", false);
         }
 
         if (hyppyViive > 0)
@@ -71,7 +82,7 @@ public class KameraPelaajaControl : MonoBehaviour
         //Maahan osuessa tappaa y-akselin liikkeen
         if (maassa && yNopeus < 0)
         {
-
+            
             yNopeus = 0f;
         }
         //painovoima
@@ -125,8 +136,9 @@ public class KameraPelaajaControl : MonoBehaviour
             if (hyppyViive > 0)
             {
                 hyppyViive = 0;
-
+                
                 aani.PlayOneShot(hyppyAani);
+                anim.SetBool("Hyppy", true);
 
                 //Hypp‰‰
                 yNopeus += Mathf.Sqrt(hypynKorkeus * 2 * painovoima);
@@ -172,6 +184,10 @@ public class KameraPelaajaControl : MonoBehaviour
         {
             OtaDamagee();
         }
+        if(other.gameObject.tag == "Finish")
+        {
+            Voita();
+        }
     }
     public void OtaDamagee()
     {
@@ -185,5 +201,10 @@ public class KameraPelaajaControl : MonoBehaviour
         {
             yield return null;
         }
+    }
+    public void Voita()
+    {
+        nopeus = 0f;
+        anim.SetTrigger("Voitto");
     }
 }

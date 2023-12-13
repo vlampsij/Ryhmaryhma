@@ -32,17 +32,8 @@ public class Ajastin : MonoBehaviour {
     void Start()
     {
         ResetTimer();
-        scoreManager = gameObject.GetComponent<ScoreManager>(); 
-        Debug.Log("GameObject name: " + gameObject.name);
-        Debug.Log("ScoreManager assigned: " + (scoreManager != null));
-        if (scoreManager != null)
-        {
-            Debug.Log("ScoreManager component found.");
-        }
-        else
-        {
-            Debug.LogError("ScoreManager component not found.");
-        }
+        scoreManager = FindObjectOfType<ScoreManager>(); 
+        
     }
 
     // Update is called once per frame
@@ -137,7 +128,7 @@ public class Ajastin : MonoBehaviour {
     {
         if (other.CompareTag("Finish"))
         {
-            Debug.LogError("maaalii");
+            Debug.Log("maaalii");
             PelinLoppu();
         }
     }

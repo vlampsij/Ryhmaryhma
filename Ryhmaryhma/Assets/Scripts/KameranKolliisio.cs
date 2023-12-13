@@ -49,7 +49,10 @@ public class KameranKolliisio : MonoBehaviour
         if (Physics.SphereCast(referenssiPaikka.position, kolliisioEtaisyys, kohdeSuunta, out osuma, oletusEtaisyys))
         {
             // jos on osuma, p‰ivitt‰‰ nykyisen sijainnin osumapisteeseen minus kollisioetaisyys
-            nykyinenSijainti = (normaaliSuunta * (osuma.distance - kolliisioEtaisyys));
+            // Lerppaa kameran liikkeen ettei hypp‰‰ koko ajan pelaajan jalkoihin
+            Vector3 tulevaSijainti;
+            tulevaSijainti = (normaaliSuunta * (osuma.distance - kolliisioEtaisyys));
+            nykyinenSijainti = Vector3.Lerp(transform.localPosition, tulevaSijainti, Time.deltaTime * kameraNopeus / 3);
         }
         else
         {

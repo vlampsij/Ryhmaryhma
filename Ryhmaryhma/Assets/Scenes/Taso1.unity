@@ -23513,10 +23513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380833e13ed66e548920afb5df8a8036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ctrl: {fileID: 1109448099}
-  nopeus: 4
-  kaantymisAika: 0.07
-  hypynKorkeus: 1
 --- !u!143 &1109448099
 CharacterController:
   m_ObjectHideFlags: 0

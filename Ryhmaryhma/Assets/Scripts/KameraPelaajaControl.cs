@@ -207,9 +207,15 @@ public class KameraPelaajaControl : MonoBehaviour
             yield return null;
         }
     }
+    IEnumerator LoppuAjastin(int s)
+    {
+        yield return new WaitForSecondsRealtime(s);
+    }
     public void Voita()
     {
         nopeus = 0f;
         anim.SetTrigger("Voitto");
+        StartCoroutine(LoppuAjastin(5));
+        SceneManager.LoadScene(2);
     }
 }

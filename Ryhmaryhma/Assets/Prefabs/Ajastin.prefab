@@ -787,7 +787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!223 &8936193420007450853
@@ -871,3 +871,4 @@ MonoBehaviour:
   jakaja: {fileID: 2682949408680954045}
   ekaSekunti: {fileID: 4072698104193017962}
   tokaSekunti: {fileID: 5786985529204310284}
+  scoreManager: {fileID: 0}

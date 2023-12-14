@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Taso1.unity
     guid: e3284342862ebf44587ff0be6b1bd8ea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Ajastin.unity
     guid: fedae46b0ddcfc64aafb3deff61418db
   m_configObjects: {}

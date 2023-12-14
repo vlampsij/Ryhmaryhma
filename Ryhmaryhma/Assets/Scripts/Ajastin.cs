@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Threading;
 
 public class Ajastin : MonoBehaviour {
 
@@ -25,40 +24,47 @@ public class Ajastin : MonoBehaviour {
     private TextMeshProUGUI tokaSekunti;
 
     private float flashAjastin;
-    private float flashKesto;
+    private float flashKesto = 1.0f;
 
     public ScoreManager scoreManager;
-
+    private bool timeSaved= false; // Add this flag
     void Start()
     {
         ResetTimer();
-        scoreManager = FindObjectOfType<ScoreManager>(); 
-        
+        scoreManager = FindObjectOfType<ScoreManager>();
+        flashAjastin = flashKesto;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Update called");
+        Debug.Log($"ajanLasku: {ajanLasku}, ajastin: {ajastin}, timeSaved: {timeSaved}");
         if (ajanLasku && ajastin > 0)
         {
             ajastin -= Time.deltaTime;
             UpdateTimerDisplay(ajastin);
-        } else if (!ajanLasku && ajastin < ajanKesto)
+            
+        } 
+        else if (!ajanLasku && ajastin < ajanKesto)
         {
+            
             ajastin += Time.deltaTime;
             UpdateTimerDisplay(ajastin);
         }
-        else if (ajanLasku && ajastin <= 0)
+        else if (ajanLasku && ajastin <= 0 && !timeSaved)
         {
+            Debug.Log("Saving time");  // Add this line for debugging
             LisaaHuippuaika(ajastin);
-        } else if (!ajanLasku && ajastin >= ajanKesto)
+            timeSaved = true;
+        }
+        else if (!ajanLasku && ajastin >= ajanKesto && !timeSaved)
         {
+            Debug.Log("Saving time");  // Add this line for debugging
             LisaaHuippuaika(ajastin);
+            timeSaved = true;
         }
-        else
-        {
-           Flash();
-        }
+        
     }
 
     private void LisaaHuippuaika(float aika)
@@ -74,10 +80,12 @@ public class Ajastin : MonoBehaviour {
     }
     private void ResetTimer()
     {
-        if(ajanLasku)
+        timeSaved = false; // Reset the flag
+        if (ajanLasku)
         {
             ajastin = ajanKesto;
-        } else
+        }
+        else
         {
             ajastin = 0;
         }
@@ -88,32 +96,11 @@ public class Ajastin : MonoBehaviour {
         float minuutit = Mathf.FloorToInt(time / 60);
         float sekunnit = Mathf.FloorToInt(time % 60);
 
-        string tamaAika = string.Format("{00:00}{1:00}", minuutit, sekunnit);
+        string tamaAika = string.Format("{0:00}{1:00}", minuutit, sekunnit);
         ekaMinuutti.text = tamaAika[0].ToString();
         tokaMinuutti.text = tamaAika[1].ToString();
         ekaSekunti.text = tamaAika[2].ToString();
         tokaSekunti.text = tamaAika[3].ToString();
-    }
-    private void Flash()
-    {
-        if(ajanLasku && ajastin != 0) 
-        {
-            ajastin = 0;
-            UpdateTimerDisplay(ajastin);
-        }
-        if(!ajanLasku && ajastin != ajanKesto)
-        {
-            ajastin = 0;
-            UpdateTimerDisplay(ajastin);
-        }
-        if(flashAjastin <= 0)
-        {
-            flashAjastin = flashKesto;
-        } else if (flashAjastin >= flashKesto / 2)
-        {
-            flashAjastin -= Time.deltaTime;
-            SetTextDisplay(true);
-        }
     }
     private void SetTextDisplay(bool enabled)
     {
@@ -124,15 +111,16 @@ public class Ajastin : MonoBehaviour {
         jakaja.enabled = enabled;
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Finish"))
-        {
-            PelinLoppu();
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Finish"))
+    //    {
+    //        PelinLoppu();
+    //    }
+    //}
     public void PelinLoppu()
     {
+        timeSaved = true;
         LisaaHuippuaika(ajastin);
     }
 }

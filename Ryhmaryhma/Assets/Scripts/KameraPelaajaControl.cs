@@ -189,9 +189,10 @@ public class KameraPelaajaControl : MonoBehaviour
         }
         if(other.gameObject.tag == "Finish")
         {
+            ajastinSkripti.PelinLoppu();
             Voita();
 
-            ajastinSkripti.PelinLoppu();
+            
         }
     }
     public void OtaDamagee()

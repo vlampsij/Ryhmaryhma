@@ -38,8 +38,7 @@ public class Ajastin : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Update called");
-        Debug.Log($"ajanLasku: {ajanLasku}, ajastin: {ajastin}, timeSaved: {timeSaved}");
+        
         if (ajanLasku && ajastin > 0)
         {
             ajastin -= Time.deltaTime;
@@ -54,13 +53,13 @@ public class Ajastin : MonoBehaviour {
         }
         else if (ajanLasku && ajastin <= 0 && !timeSaved)
         {
-            Debug.Log("Saving time");  // Add this line for debugging
+            
             LisaaHuippuaika(ajastin);
             timeSaved = true;
         }
         else if (!ajanLasku && ajastin >= ajanKesto && !timeSaved)
         {
-            Debug.Log("Saving time");  // Add this line for debugging
+           
             LisaaHuippuaika(ajastin);
             timeSaved = true;
         }
